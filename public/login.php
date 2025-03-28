@@ -1,3 +1,7 @@
+<?php
+require "functions/login_into_account.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
         rel="stylesheet" />
-    <title>Register</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -25,9 +29,12 @@
 
     <div class="login-register-container">
         <h1>Login to account</h1>
-        <form action="" method="post">
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Enter your username">
+        <?php if (count($errors) > 0): ?>
+            <?php foreach ($errors as $error): ?>
+                <p class="error"><?= $error ?></p>
+            <?php endforeach; ?>
+    <?php endif; ?>
+        <form action="login.php" method="post">
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="Enter your email" />
             <label for="pass">Password</label>
