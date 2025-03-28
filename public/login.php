@@ -3,9 +3,6 @@ require "functions/login_into_account.php"
 ?>
 
 <!DOCTYPE html>
-
-
-
 <html lang="en">
 
 <head>
@@ -38,8 +35,6 @@ require "functions/login_into_account.php"
             <?php endforeach; ?>
     <?php endif; ?>
         <form action="login.php" method="post">
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Enter your username">
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="Enter your email" />
             <label for="pass">Password</label>
