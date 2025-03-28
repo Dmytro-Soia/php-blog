@@ -26,6 +26,8 @@
     <div class="login-register-container">
         <h1>Login to account</h1>
         <form action="" method="post">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter your username">
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="Enter your email" />
             <label for="pass">Password</label>
