@@ -11,7 +11,7 @@ function connected()
 function forced_connection()
 {
     if (!connected()) {
-        header("Location: register.php");
+        header("Location: login.php");
         exit();
     }
 }

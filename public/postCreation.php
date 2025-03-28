@@ -1,3 +1,7 @@
+<?php
+require "functions/auth.php";
+forced_connection();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
