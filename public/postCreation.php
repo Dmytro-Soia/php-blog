@@ -18,17 +18,7 @@ require "functions/logout.php"
 </head>
 
 <body>
-
-    <header class="header">
-        <div class="header-left">
-            <button class="button button-manage" onclick="window.location.href='index.php'">Home Page</button>
-            <button class="button button-manage" onclick="window.location.href='postCreation.php'">Create New Post</button>
-        </div>
-        <form action="functions/logout.php" method="post">
-            <button type="submit" class="button button-logout" id="logout" name="logout" value="logout">Log Out</button>
-        </form>
-    </header>
-
+<?php require "elements/navbar.php"?>
     <div>
         <form class="create-edit-form" action="postCreation.php" method="post">
             <label class="label-create-edit" for="title">Post Title</label>
