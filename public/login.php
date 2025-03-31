@@ -17,16 +17,6 @@ require "functions/login_into_account.php"
 </head>
 
 <body>
-
-    <header class="header">
-        <div class="header-left">
-            <button class="button button-manage" onclick="window.location.href='index.php'">Home Page</button>
-            <button class="button button-manage" onclick="window.location.href='postCreation.php'">Create New Post</button>
-        </div>
-        <button class="button button-logout" id="logout">Log Out</button>
-    </header>
-
-
     <div class="login-register-container">
         <h1>Login to account</h1>
         <?php if (count($errors) > 0): ?>

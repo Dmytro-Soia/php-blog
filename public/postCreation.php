@@ -1,6 +1,7 @@
 <?php
 require "functions/auth.php";
 forced_connection();
+require "functions/logout.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +24,9 @@ forced_connection();
             <button class="button button-manage" onclick="window.location.href='index.php'">Home Page</button>
             <button class="button button-manage" onclick="window.location.href='postCreation.php'">Create New Post</button>
         </div>
-        <button class="button button-logout" id="logout">Log Out</button>
+        <form action="functions/logout.php" method="post">
+            <button type="submit" class="button button-logout" id="logout" name="logout" value="logout">Log Out</button>
+        </form>
     </header>
 
     <div>
