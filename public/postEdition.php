@@ -1,6 +1,7 @@
 <?php
 require "functions/auth.php";
 forced_connection();
+require "functions/logout.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +18,7 @@ forced_connection();
 </head>
 
 <body>
-
-    <header class="header">
-        <div class="header-left">
-            <button class="button button-manage" onclick="window.location.href='index.php'">Home Page</button>
-            <button class="button button-manage" onclick="window.location.href='postCreation.php'">Create New Post</button>
-        </div>
-        <button class="button button-logout" id="logout">Log Out</button>
-    </header>
-
+<?php require "elements/navbar.php"?>
     <div>
         <form class="create-edit-form" action="postCreation.php" method="post">
             <label class="label-create-edit" for="title">New Post Title</label>

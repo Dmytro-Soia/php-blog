@@ -1,10 +1,9 @@
 <?php
-
 session_start();
 $errors = [];
-$email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-$pass = filter_input(INPUT_POST, "pass");
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $pass = filter_input(INPUT_POST, "pass");
     if ($email === "" || $pass === "") {
         array_push($errors, "One of needed value is empty");
     }
