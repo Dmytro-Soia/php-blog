@@ -73,14 +73,18 @@ input:focus {
 /*Home Page styles*/
 .grid-section {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     gap: 20px;
     padding: 40px;
 }
 
 .post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f1f4f8;
     margin: 40px 0px 20px 0px;
     transition: all 0.3s ease-in-out;
 }
@@ -107,17 +111,19 @@ input:focus {
 
 .content {
     padding: 10px 20px;
-    background-color: #f1f4f8;
     border-radius: 12px;
+    max-height: 100px;
 }
 
 .content-text {
     padding-left: 10px;
     margin: 0;
     font-size: 16px;
-    color: #666666;
+    color: #252525;
     line-height: 1.5;
     text-align: start;
+    max-height: 100px;
+    overflow: hidden;  
 }
 
 /*Post Detail styles*/
