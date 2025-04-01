@@ -6,7 +6,7 @@ function connected()
         session_start();
         date_default_timezone_set("Europe/Zurich");
     }
-    return !empty($_SESSION["connected"]);
+    return !empty($_SESSION["userID"]);
 }
 
 function forced_connection()

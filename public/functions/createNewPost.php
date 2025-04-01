@@ -4,7 +4,6 @@ session_start();
 
 $title = filter_input(INPUT_POST, "title");
 $content = filter_input(INPUT_POST, "content");
-$photo = $_SESSION["photoName"];
 $localtime = date("Y-m-d H:i");
 if ($title === "" || $content === "") {
     array_push($errors, "One of needed value is empty");
