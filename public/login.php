@@ -1,5 +1,5 @@
 <?php
-require "functions/login_into_account.php"
+require "functions/loginIntoAccount.php"
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ require "functions/login_into_account.php"
             <?php foreach ($errors as $error): ?>
                 <p class="error"><?= $error ?></p>
             <?php endforeach; ?>
-    <?php endif; ?>
+        <?php endif; ?>
         <form action="login.php" method="post">
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="Enter your email" />
