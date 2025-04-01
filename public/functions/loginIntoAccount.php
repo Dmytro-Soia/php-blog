@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $existed_user = $user_check->fetch();
             if ($existed_user && password_verify($pass, $existed_user["pass"])) {
                 $_SESSION["connected"] = 1;
+                $_SESSION ["userID"] = $existed_user["id"];
                 header("Location: index.php");
             } else {
                 array_push($errors, "User does not exist");

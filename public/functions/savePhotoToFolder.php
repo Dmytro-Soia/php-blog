@@ -1,10 +1,11 @@
 <?php
-
+session_start();
 $target_dir = "./images/";
 $newImageName = random_bytes(10);
 $imageFileType = pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
 $uploadOk = 1;
 $target_file = $target_dir . bin2hex($newImageName) . "." . $imageFileType;
+$photo = $_SESSION["photoName"] = bin2hex($newImageName) . "." . $imageFileType;
 
 if ($_FILES["fileToUpload"]["tmp_name"] !== "") {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
