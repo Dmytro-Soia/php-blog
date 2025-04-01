@@ -5,8 +5,8 @@ forced_connection();
 require "functions/logout.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require "functions/createNewPost.php";
     require "functions/savePhotoToFolder.php";
+    require "functions/createNewPost.php";
 }
 ?>
 <!DOCTYPE html>
@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endforeach; ?>
     <?php endif; ?>
     <div>
-        <form class="create-edit-form" action="postCreation.php" method="post" enctype="multipart/form-data"> <label class="label-create-edit" for="title">Post Title</label>
+        <form class="create-edit-form" action="postCreation.php" method="post" enctype="multipart/form-data">
+            <label class="label-create-edit" for="title">Post Title</label>
             <input type="text" name="title" class="input-create-edit" placeholder="Enter the title of your post">
             <label class="label-create-edit" for="content">Post Content</label>
             <textarea name="content" rows="10" class="textarea-create-edit" placeholder="Enter the content of your post"></textarea>
