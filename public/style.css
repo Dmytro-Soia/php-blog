@@ -101,6 +101,7 @@ input:focus {
     font-weight: 500;
     color: #000000;
     text-align: center;
+
 }
 
 .post-photo {
@@ -113,6 +114,7 @@ input:focus {
     padding: 10px 20px;
     border-radius: 12px;
     max-height: 100px;
+    overflow: hidden;
 }
 
 .content-text {
