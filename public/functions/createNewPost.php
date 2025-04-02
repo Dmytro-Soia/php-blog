@@ -9,14 +9,7 @@ if ($title === "" || $content === "") {
     array_push($errors, "One of needed value is empty");
 }
 if (count($errors) === 0) {
-    $dsn = "sqlite:../database.db";
-    $user = "root";
-    $pass = "";
-    $options = [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ];
+    require "databaseConnection.php";
     try {
         $pdo = new PDO($dsn, $user, $pass, $options);
         $stmt = $pdo->prepare("INSERT INTO blog_post (title, photo, content, created_at, user_id)

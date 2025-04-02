@@ -27,14 +27,16 @@ require "functions/displayPosts.php";
             <?php endforeach; ?>
         <?php endif; ?>
     <div class="grid-section">
-        <?php foreach ($allPosts as $post): ?>
-            <div class="post" onclick="window.location.href='postDetail.php'">
-                <h2 class="post-title"><?= $post["title"] ?></h2>
-                <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
-                <div class="content">
-                    <p class="content-text"><?= $post["content"] ?></p>
-                </div>
+    <?php foreach ($allPosts as $post): ?>
+    <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
+        <div class="post">
+            <h2 class="post-title"><?= $post["title"] ?></h2>
+            <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
+            <div class="content">
+                <p class="content-text"><?= $post["content"] ?></p>
             </div>
+        </div>
+    </a>
 <?php endforeach; ?>
 </div>
 <a href="postCreation.php">Post creation</a>

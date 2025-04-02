@@ -31,7 +31,7 @@ if (
 }
 
 if ($uploadOk === 0) {
-    array_push($errors, "Your file was not uploaded due");
+    array_push($errors, "Your file was not uploaded because of an error");
 } else {
     if (!move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         array_push($errors, "There was an error uploading your file");

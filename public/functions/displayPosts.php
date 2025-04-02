@@ -1,12 +1,5 @@
 <?php
-$dns = "sqlite:../database.db";
-$user = "root";
-$pass = "";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+require "databaseConnection.php";
 try {
     $pdo = new PDO($dns, $user, $pass, $options);
     $stmt = $pdo->prepare("SELECT * FROM blog_post ORDER BY created_at DESC");
