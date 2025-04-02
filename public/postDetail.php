@@ -1,7 +1,8 @@
 <?php
 require "functions/auth.php";
 forced_connection();
-require "functions/logout.php"
+require "functions/logout.php";
+require "functions/postInDetail.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,20 +20,12 @@ require "functions/logout.php"
 
 <body>
 <?php require "elements/navbar.php"?>
-    <img src="images/pexels-pixabay-147411.jpg" class="photo-in-detail" alt="Post Image" />
+    <img src="./images/<?= $chosenPost["photo"]?>" class="photo-in-detail" alt="Post Image" />
 
     <div class="post-in-detail">
-        <h1 class="title-in-detail">Title</h1>
+        <h1 class="title-in-detail"><?= $chosenPost["title"]?></h1>
         <p class="content-text-in-detail">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam aliquid sit quas distinctio officia,
-            tenetur voluptas laudantium doloribus culpa iste illo, tempora velit reiciendis excepturi natus odio totam
-            deserunt quos? <br />
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus velit quae aut eos distinctio, sint
-            dolorem porro aliquam quisquam. Dolorem enim labore eveniet dolore autem hic doloremque sit doloribus
-            numquam? <br />
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim dignissimos repudiandae voluptate rem odio
-            excepturi aspernatur voluptas molestiae amet fuga vitae, inventore voluptatibus aliquam, debitis, cum
-            molestias consequatur tenetur modi! <br />
+            <?= $chosenPost["content"] ?>
         </p>
     </div>
     <a href="postCreation.php">Post Creation</a>

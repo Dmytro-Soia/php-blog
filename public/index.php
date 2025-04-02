@@ -28,13 +28,16 @@ require "functions/displayPosts.php";
         <?php endif; ?>
     <div class="grid-section">
         <?php foreach ($allPosts as $post): ?>
-            <div class="post" onclick="window.location.href='postDetail.php'">
+            <form name="div-form-<?= $post["id"] ?>" id="div-form-<?= $post["id"] ?>" action="postDetail.php" method="get">
+                <input type="hidden" name="postID" value="<?= $post["id"] ?>" />
+                <div class="post" onclick="document.forms['div-form-<?= $post['id'] ?>'].submit()">
                 <h2 class="post-title"><?= $post["title"] ?></h2>
                 <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
                 <div class="content">
                     <p class="content-text"><?= $post["content"] ?></p>
                 </div>
             </div>
+            </form>
 <?php endforeach; ?>
 </div>
 <a href="postCreation.php">Post creation</a>
