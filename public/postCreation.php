@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <script>
       tinymce.init({
         selector: '#textarea',
-        plugins: 'codesample, anchor, link, emoticons',
+        plugins: 'codesample, anchor, emoticons',
 
       });
     </script>

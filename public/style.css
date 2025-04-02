@@ -128,6 +128,11 @@ input:focus {
     overflow: hidden;  
 }
 
+.post-link {
+    text-decoration: none;
+    color: black;
+}
+
 /*Post Detail styles*/
 .post-in-detail {
     max-width: 800px;
