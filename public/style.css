@@ -165,6 +165,9 @@ input:focus {
     padding: 0 20px;
 }
 
+.redirect-to-edit {
+    width: 100%;
+}
 /*Login page style*/
 .login-register-container {
     margin-top: 120px;
