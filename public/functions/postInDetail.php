@@ -1,4 +1,5 @@
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $id = filter_input(INPUT_GET, "postID");
     require "databaseConnection.php";

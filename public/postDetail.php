@@ -28,6 +28,11 @@ require "functions/postInDetail.php";
             <?= $chosenPost["content"] ?>
         </p>
     </div>
+    <div class="redirect-to-edit">
+     <form action="postEdition.php" method="GET">
+        <input type="hidden" name="postId" value="<?= $chosenPost["id"]?>">
+        <button type="submit" class="button button-submit">Edit</button>
+    </div>
     <a href="postCreation.php">Post Creation</a>
     <a href="postEdition.php">Post Edition</a>
     <a href="login.php">Login Page</a>
