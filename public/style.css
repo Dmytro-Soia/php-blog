@@ -78,6 +78,15 @@ input:focus {
     padding: 40px;
 }
 
+.flash-message {
+    padding: 10px;
+    margin: 30px 20px 0px;
+    background-color: rgb(85, 180, 30);
+    color: white;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
 .post {
     display: flex;
     flex-direction: column;
@@ -132,7 +141,6 @@ input:focus {
     text-decoration: none;
     color: black;
 }
-
 /*Post Detail styles*/
 .post-in-detail {
     max-width: 800px;

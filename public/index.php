@@ -4,6 +4,7 @@ require_once "functions/auth.php";
 connected();
 logout();
 require_once "functions/displayPosts.php";
+require_once "functions/fleshMessages.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +28,9 @@ require_once "functions/displayPosts.php";
                 <p class="error"><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
+    <?php if (!empty($message)): ?>
+    <div class="flash-message"><?=$message ?></div>
+    <?php endif; ?>
     <div class="grid-section">
     <?php foreach ($allPosts as $post): ?>
     <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">

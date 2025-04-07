@@ -19,8 +19,8 @@ logout();
         </form>
     <?php elseif ($user === null): ?>
         <div>
-            <button class="button button-manage">Login</button>
-            <button class="button button-manage">Register</button>
+            <button class="button button-manage" onclick="window.location.href='login.php'">Login</button>
+            <button class="button button-manage" onclick="window.location.href='register.php'">Register</button>
         </div>
     <?php endif; ?>
 </header>

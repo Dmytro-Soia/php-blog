@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $chosenID = filter_input(INPUT_GET, "postId", FILTER_SANITIZE_NUMBER_INT);
 require "functions/databaseConnection.php";
 try {
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 array_push($errors, "Cannot edit this post");
             }
         }
-
+        $_SESSION['flash_message'] = "The post has been edited!";
         header("Location: index.php");
     } catch (Exception $e) {
         array_push($errors, "Cannot edit your post");

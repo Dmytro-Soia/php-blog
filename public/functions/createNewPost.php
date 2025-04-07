@@ -15,10 +15,9 @@ if (count($errors) === 0) {
         $stmt = $pdo->prepare("INSERT INTO blog_post (title, photo, content, created_at, user_id)
             VALUES (:title, :photo, :content, :localtime, :id)");
         $stmt->execute(["title" => $title, "photo" => $photo, "content" => $content, "localtime" => $localtime, "id" => $id]);
+        $_SESSION['flash_message'] = "The post has been created!";
         header("Location: index.php");
     } catch (Exception $e) {
-        var_dump($_SESSION["userID"]);
-        var_dump($e);
         array_push($errors, "Cannot add new post to database");
     }
 }

@@ -33,7 +33,7 @@ require_once "functions/editPost.php";
 <body>
     <?php require "elements/navbar.php" ?>
     <div>
-        <form class="create-edit-form" action="postEdition.php" method="POST" enctype="multipart/form-data">
+        <form class="create-edit-form" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="newPostId" value="<?= $chosenPost["id"] ?>">
             <label class="label-create-edit" for="title">Post ID</label>
             <label class="label-create-edit" for="title">New Post Title</label>
