@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (count($errors) === 0) {
         require "databaseConnection.php";
         try {
-            $pdo = new PDO($dsn, $user, $passw, $options);
             $email_check = $pdo->prepare("SELECT * FROM users WHERE email = :email");
             $email_check->execute(["email" => $email]);
             $usermail = $email_check->fetch();

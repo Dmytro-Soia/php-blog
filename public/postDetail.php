@@ -1,8 +1,8 @@
 <?php
-require "functions/auth.php";
-forced_connection();
-require "functions/logout.php";
-require "functions/postInDetail.php";
+require_once "functions/auth.php";
+connected();
+$user = check_connection();
+require_once "functions/postInDetail.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,9 @@ require "functions/postInDetail.php";
     <div class="redirect-to-edit">
      <form action="postEdition.php" method="GET">
         <input type="hidden" name="postId" value="<?= $chosenPost["id"]?>">
-        <button type="submit" class="button button-submit">Edit</button>
+        <?php if ($user): ?>
+            <button type="submit" class="button button-submit">Edit</button>
+        <?php endif; ?>
     </div>
     <a href="postCreation.php">Post Creation</a>
     <a href="postEdition.php">Post Edition</a>

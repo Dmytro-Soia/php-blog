@@ -3,10 +3,10 @@
 $chosenID = filter_input(INPUT_GET, "postId", FILTER_SANITIZE_NUMBER_INT);
 require "functions/databaseConnection.php";
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
     $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");
     $stmt->execute(["id" => $chosenID]);
     $chosenPost = $stmt->fetch();
+
 } catch (Exception $e) {
     array_push($errors, "Cannot charge your post");
 }

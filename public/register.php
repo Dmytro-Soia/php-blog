@@ -1,5 +1,8 @@
 <?php
-require "functions/registration.php";
+require_once "functions/auth.php";
+connected();
+require_once "functions/registration.php";
+
 ?>
 
 <!DOCTYPE html>

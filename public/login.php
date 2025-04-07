@@ -1,5 +1,8 @@
 <?php
-require "functions/loginIntoAccount.php"
+$errors = [];
+require_once "functions/auth.php";
+connected();
+login();
 ?>
 
 <!DOCTYPE html>
