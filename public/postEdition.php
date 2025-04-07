@@ -1,8 +1,13 @@
 <?php
-require "functions/auth.php";
-forced_connection();
-require "functions/logout.php";
-require "functions/editPost.php";
+require_once "functions/auth.php";
+connected();
+$user = check_connection();
+$author = creator_id();
+forced_connection($user);
+forced_connection_and_same_user($author, $user);
+logout();
+require_once "functions/editPost.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +17,12 @@ require "functions/editPost.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<script src="https://cdn.tiny.cloud/1/5t42bx25xwxji0szp3fnu02p1348n3alaqkr5hwzvyhut3od/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-      tinymce.init({
-        selector: '#text',
-        plugins: 'codesample, anchor, emoticons',
-      });
+    <script src="https://cdn.tiny.cloud/1/5t42bx25xwxji0szp3fnu02p1348n3alaqkr5hwzvyhut3od/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#text',
+            plugins: 'codesample, anchor, emoticons',
+        });
     </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
@@ -26,7 +31,7 @@ require "functions/editPost.php";
 </head>
 
 <body>
-<?php require "elements/navbar.php"?>
+    <?php require "elements/navbar.php" ?>
     <div>
         <form class="create-edit-form" action="postEdition.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="newPostId" value="<?= $chosenPost["id"] ?>">

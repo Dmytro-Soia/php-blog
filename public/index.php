@@ -1,9 +1,9 @@
 <?php
 $errors = [];
-require "functions/auth.php";
-forced_connection();
-require "functions/logout.php";
-require "functions/displayPosts.php";
+require_once "functions/auth.php";
+connected();
+logout();
+require_once "functions/displayPosts.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +20,7 @@ require "functions/displayPosts.php";
 </head>
 
 <body>
+
     <?php require "elements/navbar.php" ?>
     <?php if (count($errors) > 0): ?>
             <?php foreach ($errors as $error): ?>
@@ -38,6 +39,7 @@ require "functions/displayPosts.php";
         </div>
     </a>
 <?php endforeach; ?>
+
 </div>
 <a href="postCreation.php">Post creation</a>
 <a href="postEdition.php">Post edition</a>

@@ -1,12 +1,13 @@
 <?php
 $errors = [];
-require "functions/auth.php";
-forced_connection();
-require "functions/logout.php";
-
+require_once "functions/auth.php";
+connected();
+$user = check_connection();
+forced_connection($user);
+logout();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require "functions/savePhotoToFolder.php";
-    require "functions/createNewPost.php";
+    require_once "functions/savePhotoToFolder.php";
+    require_once "functions/createNewPost.php";
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         rel="stylesheet">
     <title>Post Edition</title>
 </head>
-
 <body>
     <?php require "elements/navbar.php" ?>
     <?php if (count($errors) > 0): ?>
@@ -58,5 +58,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <a href="index.php">Index</a>
 
 </body>
-
 </html>
