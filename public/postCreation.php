@@ -33,11 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
     <?php require "elements/navbar.php" ?>
-    <?php if (count($errors) > 0): ?>
-        <?php foreach ($errors as $error): ?>
-            <p class="error"><?= $error ?></p>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    <?php require "elements/display_flash_messages.php" ?>
     <div>
         <form class="create-edit-form" action="postCreation.php" method="post" enctype="multipart/form-data">
             <label class="label-create-edit" for="title">Post Title</label>

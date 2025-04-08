@@ -1,23 +1,24 @@
 <?php
-session_start();
+require_once "functions/auth.php";
+connected();
 $chosenID = filter_input(INPUT_GET, "postId", FILTER_SANITIZE_NUMBER_INT);
 require "functions/databaseConnection.php";
+require_once "functions/flashMessages.php";
 try {
     $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");
     $stmt->execute(["id" => $chosenID]);
     $chosenPost = $stmt->fetch();
-
 } catch (Exception $e) {
-    array_push($errors, "Cannot charge your post");
+    push_flash_message("Cannot charge your post");
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require "functions/savePhotoToFolder.php";
+    require_once "functions/savePhotoToFolder.php";
     $newTitle = filter_input(INPUT_POST, "title");
     $newContent = filter_input(INPUT_POST, "content");
     $newChosenId = filter_input(INPUT_POST, "newPostId");
     if ($newTitle === "" || $newContent === "") {
-        array_push($errors, "One of needed value is empty");
+        push_flash_message("One of needed value is empty");
     };
     try {
         if ($photo !== "" && $photo !== null) {
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $newstmt = $pdo->prepare("UPDATE blog_post SET title = :title, photo = :photo, content = :content WHERE id = :id");
                 $newstmt->execute(["title" => $newTitle, "content" => $newContent, "photo" => $photo, "id" => $newChosenId]);
             } catch (Exception $e) {
-                array_push($errors, "Cannot edit this post");
+                push_flash_message("Cannot edit this post");
             }
         } else {
             try {
@@ -38,12 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $newstmt->execute(["title" => $newTitle, "content" => $newContent, "id" => $newChosenId]);
 
             } catch (Exception $e) {
-                array_push($errors, "Cannot edit this post");
+                push_flash_message("Cannot edit this post");
             }
         }
-        $_SESSION['flash_message'] = "The post has been edited!";
+        push_flash_message("The post has been edited!");
         header("Location: index.php");
+        exit();
     } catch (Exception $e) {
-        array_push($errors, "Cannot edit your post");
+        push_flash_message("Cannot edit your post");
     }
 }

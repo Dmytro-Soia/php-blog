@@ -8,9 +8,9 @@ logout();
 ?>
 <header class="header">
     <div class="header-left">
-        <button class="button button-manage" onclick="window.location.href='index.php'">Home Page</button>
+        <a class="button button-manage home-page" href='index.php'>Home Page</a>
         <?php if ($user): ?>
-            <button class="button button-manage" onclick="window.location.href='postCreation.php'">Create New Post</button>
+            <a class="button button-manage post-creation" href='postCreation.php'>Create New Post</a>
         <?php endif; ?>
     </div>
     <?php if ($user): ?>
@@ -18,9 +18,9 @@ logout();
             <button type="submit" class="button button-logout" id="logout" name="logout" value="logout">Log Out</button>
         </form>
     <?php elseif ($user === null): ?>
-        <div>
-            <button class="button button-manage" onclick="window.location.href='login.php'">Login</button>
-            <button class="button button-manage" onclick="window.location.href='register.php'">Register</button>
+        <div class="header-right">
+            <a class="button button-manage login" href="login.php">Login</a>
+            <a class="button button-manage register" href="register.php">Register</a>
         </div>
     <?php endif; ?>
 </header>

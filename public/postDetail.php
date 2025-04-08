@@ -23,6 +23,7 @@ require_once "functions/postInDetail.php";
     <img src="./images/<?= $chosenPost["photo"]?>" class="photo-in-detail" alt="Post Image" />
 
     <div class="post-in-detail">
+    <?php require "elements/display_flash_messages.php" ?>
         <h1 class="title-in-detail"><?= $chosenPost["title"]?></h1>
         <p class="content-text-in-detail">
             <?= $chosenPost["content"] ?>

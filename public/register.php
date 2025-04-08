@@ -23,11 +23,7 @@ require_once "functions/registration.php";
 <body>
     <div class="login-register-container">
         <h1>Register New Account</h1>
-        <?php if (count($errors) > 0): ?>
-            <?php foreach ($errors as $error): ?>
-                <p class="error"><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
+    <?php require "elements/display_flash_messages.php" ?>
         <form action="register.php" method="post">
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="Enter your username">

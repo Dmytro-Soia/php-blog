@@ -57,6 +57,11 @@ input:focus {
     background-color: #ffffff;
 }
 
+.login, .register, .home-page, .post-creation {
+    text-decoration: none;
+    align-content: center;
+}
+
 .button-manage:hover {
     background-color: #e6effc;
 }
@@ -70,6 +75,9 @@ input:focus {
     background-color: #ca2f2f;
 }
 
+.header-right {
+    display: flex;
+}
 /*Home Page styles*/
 .grid-section {
     display: grid;

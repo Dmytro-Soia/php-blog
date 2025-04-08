@@ -1,21 +1,21 @@
 <?php
-
-$errors = [];
+require_once "functions/auth.php";
+connected();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = filter_input(INPUT_POST, "username");
     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
     $pass = filter_input(INPUT_POST, "pass");
     if ($username === "" || $email === "" || $pass === "") {
-        array_push($errors, "One of needed value is empty");
+        push_flash_message("One of needed value is empty");
     }
-    if (count($errors) === 0) {
+    if (count($_SESSION["flash_messages"]) === 0) {
         require "databaseConnection.php";
         try {
             $email_check = $pdo->prepare("SELECT * FROM users WHERE email = :email");
             $email_check->execute(["email" => $email]);
             $usermail = $email_check->fetch();
             if ($usermail) {
-                array_push($errors, "Email already exist in database");
+                push_flash_message("Email already exist in database");
             }
             $hash = password_hash($pass, PASSWORD_DEFAULT);
             $stmt = $pdo->prepare("INSERT INTO users (username, email, pass) VALUES (:username, :email, :pass)");
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: login.php");
             exit();
         } catch (Exception $e) {
-            array_push($errors, "Problem with database access");
+            push_flash_message("Problem with database access");
         }
     }
 }

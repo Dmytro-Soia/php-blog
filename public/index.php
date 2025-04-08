@@ -1,10 +1,9 @@
 <?php
-$errors = [];
 require_once "functions/auth.php";
 connected();
 logout();
 require_once "functions/displayPosts.php";
-require_once "functions/fleshMessages.php";
+require_once "functions/flashMessages.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,16 +20,8 @@ require_once "functions/fleshMessages.php";
 </head>
 
 <body>
-
     <?php require "elements/navbar.php" ?>
-    <?php if (count($errors) > 0): ?>
-            <?php foreach ($errors as $error): ?>
-                <p class="error"><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    <?php if (!empty($message)): ?>
-    <div class="flash-message"><?=$message ?></div>
-    <?php endif; ?>
+    <?php require "elements/display_flash_messages.php" ?>
     <div class="grid-section">
     <?php foreach ($allPosts as $post): ?>
     <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
