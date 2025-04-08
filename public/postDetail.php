@@ -1,4 +1,5 @@
 <?php
+require_once "../vendor/autoload.php";
 require_once "functions/auth.php";
 connected();
 $user = check_connection();
@@ -19,21 +20,26 @@ require_once "functions/postInDetail.php";
 </head>
 
 <body>
-<?php require "elements/navbar.php"?>
-    <img src="./images/<?= $chosenPost["photo"]?>" class="photo-in-detail" alt="Post Image" />
+    <?php require "elements/navbar.php" ?>
+    <img src="./images/<?= $chosenPost["photo"] ?>" class="photo-in-detail" alt="Post Image" />
 
     <div class="post-in-detail">
-        <h1 class="title-in-detail"><?= $chosenPost["title"]?></h1>
+        <?php require "elements/display_flash_messages.php" ?>
+        <h1 class="title-in-detail"><?= $chosenPost["title"] ?></h1>
         <p class="content-text-in-detail">
-            <?= $chosenPost["content"] ?>
+            <?php
+            $config = HTMLPurifier_Config::createDefault();
+            $purifier = new HTMLPurifier($config);
+            echo $purifier->purify($post["content"]);
+            ?>
         </p>
     </div>
     <div class="redirect-to-edit">
-     <form action="postEdition.php" method="GET">
-        <input type="hidden" name="postId" value="<?= $chosenPost["id"]?>">
-        <?php if ($user): ?>
-            <button type="submit" class="button button-submit">Edit</button>
-        <?php endif; ?>
+        <form action="postEdition.php" method="GET">
+            <input type="hidden" name="postId" value="<?= $chosenPost["id"] ?>">
+            <?php if ($user): ?>
+                <button type="submit" class="button button-submit">Edit</button>
+            <?php endif; ?>
     </div>
     <a href="postCreation.php">Post Creation</a>
     <a href="postEdition.php">Post Edition</a>

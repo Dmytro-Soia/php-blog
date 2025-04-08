@@ -1,3 +1,4 @@
 /vendor/
 database.db
 database.db-journal
+/public/images

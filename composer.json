@@ -14,5 +14,8 @@
     ],
     "require-dev": {
         "laravel/pint": "^1.21"
+    },
+    "require": {
+        "ezyang/htmlpurifier": "^4.18"
     }
 }

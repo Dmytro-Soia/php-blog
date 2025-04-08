@@ -1,9 +1,7 @@
 <?php
-
+require_once "functions/flashMessages.php";
 function check_connection()
 {
-    session_start();
-
     if (isset($_SESSION["userID"])) {
         return $_SESSION["userID"];
     } else {
@@ -14,7 +12,7 @@ function check_connection()
 function creator_id()
 {
     require "databaseConnection.php";
-    $postID = filter_input(INPUT_GET, "postId");
+    $postID = filter_input(INPUT_GET, "postId", FILTER_SANITIZE_NUMBER_INT);
     $stmt = $pdo->prepare("SELECT user_id FROM blog_post WHERE id = :id");
     $stmt->execute(["id" => $postID]);
     $creatorID = $stmt->fetch();
@@ -49,16 +47,15 @@ function forced_connection_and_same_user($connected_user, $user_id)
 
 function login()
 {
-    $errors = [];
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-        $pass = filter_input(INPUT_POST, "pass");
+        $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
+        $_SESSION["flash_messages"] = [];
         if ($email === "" || $pass === "") {
-            array_push($errors, "One of needed value is empty");
+            push_flash_message("One of needed value is empty");
         }
-        if (count($errors) === 0) {
-
-            require "databaseConnection.php";
+        if (count($_SESSION["flash_messages"]) === 0) {
+            require_once "databaseConnection.php";
             try {
                 $user_check = $pdo->prepare("SELECT * FROM users WHERE email = :email");
                 $user_check->execute(["email" => $email]);
@@ -68,10 +65,10 @@ function login()
                     header("Location: index.php");
                     exit();
                 } else {
-                    array_push($errors, "User does not exist");
+                    push_flash_message("User does not exist");
                 }
             } catch (Exception $e) {
-                array_push($errors, "Problem with database access");
+                push_flash_message("Problem with database access");
             }
         }
     }
@@ -80,7 +77,7 @@ function login()
 function logout()
 {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $logpost = filter_input(INPUT_POST, "logout");
+        $logpost = filter_input(INPUT_POST, "logout", FILTER_SANITIZE_SPECIAL_CHARS);
         if (isset($_POST[$logpost])) {
             session_destroy();
             header("Location: /login.php");

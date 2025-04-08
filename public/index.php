@@ -1,9 +1,11 @@
 <?php
-$errors = [];
+require_once "../vendor/autoload.php";
+
 require_once "functions/auth.php";
 connected();
 logout();
 require_once "functions/displayPosts.php";
+require_once "functions/flashMessages.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +22,8 @@ require_once "functions/displayPosts.php";
 </head>
 
 <body>
-
     <?php require "elements/navbar.php" ?>
-    <?php if (count($errors) > 0): ?>
-            <?php foreach ($errors as $error): ?>
-                <p class="error"><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
+    <?php require "elements/display_flash_messages.php" ?>
     <div class="grid-section">
     <?php foreach ($allPosts as $post): ?>
     <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
@@ -34,7 +31,13 @@ require_once "functions/displayPosts.php";
             <h2 class="post-title"><?= $post["title"] ?></h2>
             <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
             <div class="content">
-                <p class="content-text"><?= $post["content"] ?></p>
+                <p class="content-text">
+                <?php
+                    $config = HTMLPurifier_Config::createDefault();
+                    $purifier = new HTMLPurifier($config);
+                    echo $purifier->purify($post["content"]);
+                ?>
+                </p>
             </div>
         </div>
     </a>

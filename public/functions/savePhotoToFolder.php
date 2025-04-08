@@ -1,5 +1,5 @@
 <?php
-
+require_once "functions/flashMessages.php";
 if ($_FILES["fileToUpload"]["name"] !== "") {
     $target_dir = "./images/";
     $newImageName = random_bytes(10);
@@ -14,28 +14,28 @@ if ($_FILES["fileToUpload"]["name"] !== "") {
             "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            array_push($errors, "File is not an image.");
+            push_flash_message("File is not an image.");
             $uploadOk = 0;
         }
     }
 
     if ($_FILES["fileToUpload"]["size"] > 1048576) {
-        array_push($errors, "Your file is too large.");
+        push_flash_message("Your file is too large.");
         $uploadOk = 0;
     }
 
     if (
         $imageFileType != "jpg" && $imageFileType != "png"
     ) {
-        array_push($errors, "Only JPG and PNG files are allowed");
+        push_flash_message("Only JPG and PNG files are allowed");
         $uploadOk = 0;
     }
 
     if ($uploadOk === 0) {
-        array_push($errors, "Your file was not uploaded because of an error");
+        push_flash_message("Your file was not uploaded because of an error");
     } else {
         if (!move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            array_push($errors, "There was an error uploading your file");
+            push_flash_message("There was an error uploading your file");
         }
     }
 }

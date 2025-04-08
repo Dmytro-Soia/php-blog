@@ -1,24 +1,22 @@
 <?php
-
-session_start();
-
+require_once "functions/flashMessages.php";
 $title = filter_input(INPUT_POST, "title");
 $content = filter_input(INPUT_POST, "content");
 $localtime = date("Y-m-d H:i");
 $id = $_SESSION["userID"];
 if ($title === "" || $content === "") {
-    array_push($errors, "One of needed value is empty");
+    push_flash_message("One of needed value is empty");
 }
-if (count($errors) === 0) {
-    require_once "databaseConnection.php";
+if (!is_flash_message()) {
+    require "databaseConnection.php";
     try {
         $stmt = $pdo->prepare("INSERT INTO blog_post (title, photo, content, created_at, user_id)
             VALUES (:title, :photo, :content, :localtime, :id)");
         $stmt->execute(["title" => $title, "photo" => $photo, "content" => $content, "localtime" => $localtime, "id" => $id]);
+        push_flash_message("The post has been created!");
         header("Location: index.php");
+        exit();
     } catch (Exception $e) {
-        var_dump($_SESSION["userID"]);
-        var_dump($e);
-        array_push($errors, "Cannot add new post to database");
+        push_flash_message("Cannot add new post to database");
     }
 }

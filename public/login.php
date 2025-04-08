@@ -1,5 +1,4 @@
 <?php
-$errors = [];
 require_once "functions/auth.php";
 connected();
 login();
@@ -21,12 +20,8 @@ login();
 
 <body>
     <div class="login-register-container">
+    <?php require "elements/display_flash_messages.php" ?>
         <h1>Login to account</h1>
-        <?php if (count($errors) > 0): ?>
-            <?php foreach ($errors as $error): ?>
-                <p class="error"><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
         <form action="login.php" method="post">
             <label for="email">Email Address</label>
             <input type="email" name="email" placeholder="Enter your email" />

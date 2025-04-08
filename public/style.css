@@ -57,6 +57,11 @@ input:focus {
     background-color: #ffffff;
 }
 
+.login, .register, .home-page, .post-creation {
+    text-decoration: none;
+    align-content: center;
+}
+
 .button-manage:hover {
     background-color: #e6effc;
 }
@@ -70,12 +75,24 @@ input:focus {
     background-color: #ca2f2f;
 }
 
+.header-right {
+    display: flex;
+}
 /*Home Page styles*/
 .grid-section {
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 20px;
     padding: 40px;
+}
+
+.message {
+    padding: 10px;
+    margin: 30px 20px 0px;
+    background-color: #1c62c8;
+    color: white;
+    border-radius: 25px;
+    border: 1px solid black;
 }
 
 .post {
@@ -132,7 +149,6 @@ input:focus {
     text-decoration: none;
     color: black;
 }
-
 /*Post Detail styles*/
 .post-in-detail {
     max-width: 800px;
