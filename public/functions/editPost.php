@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($newTitle === "" || $newContent === "") {
         push_flash_message("One of needed value is empty");
     };
+    if (!is_flash_message()) {
     try {
         if ($photo !== "" && $photo !== null) {
             try {
@@ -48,4 +49,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } catch (Exception $e) {
         push_flash_message("Cannot edit your post");
     }
+}
 }

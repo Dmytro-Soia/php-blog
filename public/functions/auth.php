@@ -12,7 +12,7 @@ function check_connection()
 function creator_id()
 {
     require "databaseConnection.php";
-    $postID = filter_input(INPUT_GET, "postId");
+    $postID = filter_input(INPUT_GET, "postId", FILTER_SANITIZE_NUMBER_INT);
     $stmt = $pdo->prepare("SELECT user_id FROM blog_post WHERE id = :id");
     $stmt->execute(["id" => $postID]);
     $creatorID = $stmt->fetch();
@@ -49,7 +49,7 @@ function login()
 {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-        $pass = filter_input(INPUT_POST, "pass");
+        $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
         $_SESSION["flash_messages"] = [];
         if ($email === "" || $pass === "") {
             push_flash_message("One of needed value is empty");
@@ -77,7 +77,7 @@ function login()
 function logout()
 {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $logpost = filter_input(INPUT_POST, "logout");
+        $logpost = filter_input(INPUT_POST, "logout", FILTER_SANITIZE_SPECIAL_CHARS);
         if (isset($_POST[$logpost])) {
             session_destroy();
             header("Location: /login.php");

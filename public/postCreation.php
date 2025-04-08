@@ -1,5 +1,4 @@
 <?php
-$errors = [];
 require_once "functions/auth.php";
 connected();
 $user = check_connection();
@@ -35,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php require "elements/navbar.php" ?>
     <?php require "elements/display_flash_messages.php" ?>
     <div>
-        <form class="create-edit-form" action="postCreation.php" method="post" enctype="multipart/form-data">
+        <form class="create-edit-form" method="post" enctype="multipart/form-data">
             <label class="label-create-edit" for="title">Post Title</label>
             <input type="text" name="title" class="input-create-edit" placeholder="Enter the title of your post">
             <label class="label-create-edit" for="content">Post Content</label>

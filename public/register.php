@@ -2,7 +2,6 @@
 require_once "functions/auth.php";
 connected();
 require_once "functions/registration.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +21,8 @@ require_once "functions/registration.php";
 
 <body>
     <div class="login-register-container">
-        <h1>Register New Account</h1>
     <?php require "elements/display_flash_messages.php" ?>
+        <h1>Register New Account</h1>
         <form action="register.php" method="post">
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="Enter your username">

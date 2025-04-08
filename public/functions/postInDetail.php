@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
-    $id = filter_input(INPUT_GET, "postID");
+    $id = filter_input(INPUT_GET, "postID", FILTER_SANITIZE_SPECIAL_CHARS);
     require "databaseConnection.php";
     try {
         $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");

@@ -1,14 +1,18 @@
 <?php
 require_once "functions/auth.php";
+require_once "functions/flashMessages.php";
 connected();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = filter_input(INPUT_POST, "username");
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-    $pass = filter_input(INPUT_POST, "pass");
+    $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
     if ($username === "" || $email === "" || $pass === "") {
         push_flash_message("One of needed value is empty");
     }
-    if (count($_SESSION["flash_messages"]) === 0) {
+    if (mb_strlen($pass) < 9) {
+        push_flash_message("Your password is less than 9 characters!");
+    }
+    if (!is_flash_message()) {
         require "databaseConnection.php";
         try {
             $email_check = $pdo->prepare("SELECT * FROM users WHERE email = :email");
