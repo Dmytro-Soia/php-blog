@@ -1,4 +1,6 @@
 <?php
+require_once "../vendor/autoload.php";
+
 require_once "functions/auth.php";
 connected();
 logout();
@@ -29,7 +31,13 @@ require_once "functions/flashMessages.php";
             <h2 class="post-title"><?= $post["title"] ?></h2>
             <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
             <div class="content">
-                <p class="content-text"><?= $post["content"] ?></p>
+                <p class="content-text">
+                <?php
+                    $config = HTMLPurifier_Config::createDefault();
+                    $purifier = new HTMLPurifier($config);
+                    echo $purifier->purify($post["content"]);
+                ?>
+                </p>
             </div>
         </div>
     </a>
