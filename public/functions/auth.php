@@ -32,6 +32,7 @@ function connected()
 function forced_connection($user)
 {
     if (!isset($user)) {
+        push_flash_message("Please log in to access a full functionality of the website");
         header("Location: login.php");
         exit();
     }
@@ -40,6 +41,7 @@ function forced_connection($user)
 function forced_connection_and_same_user($connected_user, $user_id)
 {
     if ($connected_user !== $user_id) {
+        push_flash_message("You are not the author of this post");
         header("Location: index.php");
         exit();
     }
