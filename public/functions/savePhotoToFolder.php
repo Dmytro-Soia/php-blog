@@ -1,4 +1,5 @@
 <?php
+
 require_once "functions/flashMessages.php";
 if ($_FILES["fileToUpload"]["name"] !== "") {
     $target_dir = "./images/";

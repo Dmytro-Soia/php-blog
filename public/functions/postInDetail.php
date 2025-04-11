@@ -8,6 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $stmt->execute(["id" => $id]);
         $chosenPost = $stmt->fetch();
     } catch (Exception $e) {
-       push_flash_message("Cannot display this post");
+        push_flash_message("Cannot display this post");
     }
 }

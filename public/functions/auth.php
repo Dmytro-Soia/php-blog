@@ -17,7 +17,6 @@ function creator_id()
     $stmt->execute(["id" => $postID]);
     $creatorID = $stmt->fetch();
     return $creatorID["user_id"];
-
 }
 
 function connected()
@@ -38,12 +37,20 @@ function forced_connection($user)
     }
 }
 
-function forced_connection_and_same_user($connected_user, $user_id)
+function forced_connection_and_same_user($connected_user, $creator, $admin)
 {
-    if ($connected_user !== $user_id) {
+    if ($connected_user !== $creator && !$admin) {
         push_flash_message("You are not the author of this post");
         header("Location: index.php");
         exit();
+    }
+}
+
+function admin_page_protection($admin) 
+{
+    if ($admin === 0) {
+        push_flash_message("You are not allowed to get access to this page");
+        header("Location: index.php");
     }
 }
 
@@ -63,6 +70,7 @@ function login()
                 $user_check->execute(["email" => $email]);
                 $existed_user = $user_check->fetch();
                 if ($existed_user && password_verify($pass, $existed_user["pass"])) {
+                    $_SESSION["isAdmin?"] = $existed_user["administrator"];
                     $_SESSION["userID"] = $existed_user["id"];
                     header("Location: index.php");
                     exit();

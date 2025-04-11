@@ -1,4 +1,5 @@
 <?php
+
 require_once "functions/auth.php";
 connected();
 require_once "functions/flashMessages.php";
