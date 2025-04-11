@@ -29,9 +29,9 @@ require_once "functions/postInDetail.php";
         <p class="content-text-in-detail">
             <?php
             $config = HTMLPurifier_Config::createDefault();
-            $purifier = new HTMLPurifier($config);
-            echo $purifier->purify($post["content"]);
-            ?>
+$purifier = new HTMLPurifier($config);
+echo $purifier->purify($post["content"]);
+?>
         </p>
     </div>
     <div class="redirect-to-edit">

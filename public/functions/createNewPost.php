@@ -1,4 +1,5 @@
 <?php
+
 require_once "functions/flashMessages.php";
 $title = filter_input(INPUT_POST, "title");
 $content = filter_input(INPUT_POST, "content");

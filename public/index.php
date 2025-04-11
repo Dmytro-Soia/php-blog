@@ -34,9 +34,9 @@ require_once "functions/flashMessages.php";
                 <p class="content-text">
                 <?php
                     $config = HTMLPurifier_Config::createDefault();
-                    $purifier = new HTMLPurifier($config);
-                    echo $purifier->purify($post["content"]);
-                ?>
+        $purifier = new HTMLPurifier($config);
+        echo $purifier->purify($post["content"]);
+        ?>
                 </p>
             </div>
         </div>

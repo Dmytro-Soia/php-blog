@@ -334,3 +334,36 @@ label {
 .button-submit:hover {
     background-color: #e6effc;
 }
+
+/* Admin Panel*/
+
+.display-users {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+    background-color: #f1f4f8;
+    margin: 40px 0px 20px 0px;
+    padding: 10px 20px;
+}
+
+
+.users-grid-section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 120px;
+    padding: 40px;
+}
+
+.admin-button {
+    margin: 0px;
+    border: 1px solid black;
+}
+
+.admin-button:active {
+    transform: scale(0.98);
+    transition: 0.1s ease;
+  }

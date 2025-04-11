@@ -3,8 +3,9 @@ require_once "functions/auth.php";
 connected();
 $user = check_connection();
 $author = creator_id();
+$admin = $_SESSION["isAdmin?"];
 forced_connection($user);
-forced_connection_and_same_user($author, $user);
+forced_connection_and_same_user($author, $user, $admin);
 logout();
 require_once "functions/editPost.php";
 
