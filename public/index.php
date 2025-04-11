@@ -25,31 +25,31 @@ require_once "functions/flashMessages.php";
     <?php require "elements/navbar.php" ?>
     <?php require "elements/display_flash_messages.php" ?>
     <div class="grid-section">
-    <?php foreach ($allPosts as $post): ?>
-    <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
-        <div class="post">
-            <h2 class="post-title"><?= $post["title"] ?></h2>
-            <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
-            <div class="content">
-                <p class="content-text">
-                <?php
-                    $config = HTMLPurifier_Config::createDefault();
-        $purifier = new HTMLPurifier($config);
-        echo $purifier->purify($post["content"]);
-        ?>
-                </p>
-            </div>
-        </div>
-    </a>
-<?php endforeach; ?>
+        <?php foreach ($allPosts as $post): ?>
+            <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
+                <div class="post">
+                    <h2 class="post-title"><?= $post["title"] ?></h2>
+                    <img src="/post-images/<?= $post["photo"] ?>" class="post-photo" />
+                    <div class="content">
+                        <p class="content-text">
+                            <?php
+                            $config = HTMLPurifier_Config::createDefault();
+                            $purifier = new HTMLPurifier($config);
+                            echo $purifier->purify($post["content"]);
+                            ?>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <?php endforeach; ?>
 
-</div>
-<a href="postCreation.php">Post creation</a>
-<a href="postEdition.php">Post edition</a>
-<a href="login.php">Login page</a>
-<a href="register.php">Register page</a>
-<a href="postDetail.php">Post detail</a>
-<a href="index.php">Index</a>
+    </div>
+    <a href="postCreation.php">Post creation</a>
+    <a href="postEdition.php">Post edition</a>
+    <a href="login.php">Login page</a>
+    <a href="register.php">Register page</a>
+    <a href="postDetail.php">Post detail</a>
+    <a href="index.php">Index</a>
 </body>
 
 </html>

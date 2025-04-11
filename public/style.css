@@ -57,7 +57,10 @@ input:focus {
     background-color: #ffffff;
 }
 
-.login, .register, .home-page, .post-creation {
+.login,
+.register,
+.home-page,
+.post-creation {
     text-decoration: none;
     align-content: center;
 }
@@ -78,6 +81,7 @@ input:focus {
 .header-right {
     display: flex;
 }
+
 /*Home Page styles*/
 .grid-section {
     display: grid;
@@ -142,13 +146,14 @@ input:focus {
     line-height: 1.5;
     text-align: start;
     max-height: 100px;
-    overflow: hidden;  
+    overflow: hidden;
 }
 
 .post-link {
     text-decoration: none;
     color: black;
 }
+
 /*Post Detail styles*/
 .post-in-detail {
     max-width: 800px;
@@ -184,6 +189,7 @@ input:focus {
 .redirect-to-edit {
     width: 100%;
 }
+
 /*Login page style*/
 .login-register-container {
     margin-top: 120px;
@@ -344,7 +350,7 @@ label {
     min-width: 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    
+
     background-color: #f1f4f8;
     margin: 40px 0px 20px 0px;
     padding: 10px 20px;
@@ -366,4 +372,4 @@ label {
 .admin-button:active {
     transform: scale(0.98);
     transition: 0.1s ease;
-  }
+}

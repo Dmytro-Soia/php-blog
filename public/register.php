@@ -21,7 +21,7 @@ require_once "functions/registration.php";
 
 <body>
     <div class="login-register-container">
-    <?php require "elements/display_flash_messages.php" ?>
+        <?php require "elements/display_flash_messages.php" ?>
         <h1>Register New Account</h1>
         <form action="register.php" method="post">
             <label for="username">Username</label>

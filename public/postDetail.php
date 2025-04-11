@@ -21,7 +21,7 @@ require_once "functions/postInDetail.php";
 
 <body>
     <?php require "elements/navbar.php" ?>
-    <img src="./images/<?= $chosenPost["photo"] ?>" class="photo-in-detail" alt="Post Image" />
+    <img src="./post-images/<?= $chosenPost["photo"] ?>" class="photo-in-detail" alt="Post Image" />
 
     <div class="post-in-detail">
         <?php require "elements/display_flash_messages.php" ?>
@@ -29,9 +29,9 @@ require_once "functions/postInDetail.php";
         <p class="content-text-in-detail">
             <?php
             $config = HTMLPurifier_Config::createDefault();
-$purifier = new HTMLPurifier($config);
-echo $purifier->purify($post["content"]);
-?>
+            $purifier = new HTMLPurifier($config);
+            echo $purifier->purify($post["content"]);
+            ?>
         </p>
     </div>
     <div class="redirect-to-edit">

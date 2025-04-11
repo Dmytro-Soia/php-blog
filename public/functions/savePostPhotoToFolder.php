@@ -2,7 +2,7 @@
 
 require_once "functions/flashMessages.php";
 if ($_FILES["fileToUpload"]["name"] !== "") {
-    $target_dir = "./images/";
+    $target_dir = "./post-images/";
     $newImageName = random_bytes(10);
     $imageFileType = pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
     $uploadOk = 1;
