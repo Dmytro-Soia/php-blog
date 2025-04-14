@@ -19,10 +19,10 @@ logout();
     </div>
     <?php if ($user): ?>
         <div class="header-right">
-        <a class="button button-manage home-page" href='userProfile.php'>Profile</a>
-        <form method="post">
-            <button type="submit" class="button button-logout" id="logout" name="logout" value="logout">Log Out</button>
-        </form>
+            <a class="button button-manage home-page" href='userProfile.php'>Profile</a>
+            <form method="post">
+                <button type="submit" class="button button-logout" id="logout" name="logout" value="logout">Log Out</button>
+            </form>
         </div>
     <?php elseif ($user === null): ?>
         <div class="header-right">

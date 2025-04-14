@@ -16,17 +16,18 @@ require_once "functions/createNewPost.php";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://cdn.tiny.cloud/1/5t42bx25xwxji0szp3fnu02p1348n3alaqkr5hwzvyhut3od/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-      tinymce.init({
-        selector: '#textarea',
-        plugins: 'codesample, anchor, emoticons',
+        tinymce.init({
+            selector: '#textarea',
+            plugins: 'codesample, anchor, emoticons',
 
-      });
+        });
     </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
     <title>Post Edition</title>
 </head>
+
 <body>
     <?php require "elements/navbar.php" ?>
     <?php require "elements/display_flash_messages.php" ?>
@@ -42,4 +43,5 @@ require_once "functions/createNewPost.php";
         </form>
     </div>
 </body>
+
 </html>

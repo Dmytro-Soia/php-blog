@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     };
     if (!is_flash_message()) {
         try {
-            if ($photo !== "" && $photo !== null) {
+            if (!empty($photo)) {
                 try {
                     $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");
                     $stmt->execute(["id" => $newChosenId]);

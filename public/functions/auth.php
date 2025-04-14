@@ -1,4 +1,5 @@
 <?php
+
 require_once "functions/flashMessages.php";
 function check_connection()
 {
@@ -46,7 +47,7 @@ function forced_connection_and_same_user($connected_user, $creator, $admin)
     }
 }
 
-function admin_page_protection($admin) 
+function admin_page_protection($admin)
 {
     if ($admin === 0) {
         push_flash_message("You are not allowed to get access to this page");
@@ -90,7 +91,7 @@ function logout()
         $logpost = filter_input(INPUT_POST, "logout", FILTER_SANITIZE_SPECIAL_CHARS);
         if (isset($_POST[$logpost])) {
             session_unset();
-            
+
             session_destroy();
             header("Location: /login.php");
         }

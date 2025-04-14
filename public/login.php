@@ -19,9 +19,9 @@ login();
 </head>
 
 <body>
-    <?php require "elements/navbar.php"?>
+    <?php require "elements/navbar.php" ?>
     <div class="login-register-container">
-    <?php require "elements/display_flash_messages.php" ?>
+        <?php require "elements/display_flash_messages.php" ?>
         <h1>Login to account</h1>
         <form action="login.php" method="post">
             <label for="email">Email Address</label>

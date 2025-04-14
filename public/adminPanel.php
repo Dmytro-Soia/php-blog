@@ -8,6 +8,7 @@ require_once "functions/adminChanging.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,22 +26,22 @@ require_once "functions/adminChanging.php";
     <div class="users-grid-section">
         <?php foreach ($allUsers as $user): ?>
             <form method="post">
-            <div class="display-users">
-                <input type="hidden" value=<?= $user["id"] ?> name="adminChanges">
-                <p>ID: <?= $user["id"] ?></p>
-                <p> Username: <?php
-                                $config = HTMLPurifier_Config::createDefault();
+                <div class="display-users">
+                    <input type="hidden" value=<?= $user["id"] ?> name="adminChanges">
+                    <p>ID: <?= $user["id"] ?></p>
+                    <p> Username: <?php
+                                    $config = HTMLPurifier_Config::createDefault();
             $purifier = new HTMLPurifier($config);
             echo $purifier->purify($user["username"]);
             ?>
-                </p>
-                <p>Email: <?= $user["email"] ?></p>
-                <div>
-                    <label for="Admin">Administrator: </label>
-                    <input type="checkbox" name="admin" value="admin" <?= $user["administrator"] === 1 ? 'checked' : '' ?>><br><br>
+                    </p>
+                    <p>Email: <?= $user["email"] ?></p>
+                    <div>
+                        <label for="Admin">Administrator: </label>
+                        <input type="checkbox" name="admin" value="admin" <?= $user["administrator"] === 1 ? 'checked' : '' ?>><br><br>
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="button admin-button">Confirm changes</button>
+                <button type="submit" class="button admin-button">Confirm changes</button>
             </form>
         <?php endforeach; ?>
     </div>
