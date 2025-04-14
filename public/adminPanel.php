@@ -44,12 +44,6 @@ require_once "functions/adminChanging.php";
             </form>
         <?php endforeach; ?>
     </div>
-    <a href="postCreation.php">Post creation</a>
-    <a href="postEdition.php">Post edition</a>
-    <a href="login.php">Login page</a>
-    <a href="register.php">Register page</a>
-    <a href="postDetail.php">Post detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>

@@ -15,6 +15,7 @@ require_once "functions/userPage.php";
     <?php require "elements/navbar.php" ?>
     <div class="user-profile-grid">
         <div class="users-post">
+        <?php require "elements/display_flash_messages.php"?>
             <?php foreach ($userPosts as $post): ?>
                 <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
                     <div class="post">
@@ -36,17 +37,17 @@ require_once "functions/userPage.php";
     </div>
 
     <div class="user-profile">
-        <form class="user-form" action="userInfoEdit.php" method="post">
-            <img src="images/def.png" id="user-profile-pic">
+            <img src="./images/<?= $userInfo["prof_pic"] ?>" id="user-profile-pic">
             <p>UID: <?= $userInfo["id"] ?></p>
             <label class="user-label" for="username">Username:</label>
             <h2 class="user-info" name="username"><?= $userInfo["username"] ?></h2>
             <label class="user-label" for="email">Email:</label>
             <h2 class="user-info" name="email"><?= $userInfo["email"] ?></h2>
-            <label class="user-label" for="bio">Bio:</label>
-            <textarea disabled class="user-textarea" rows="10" name="bio"><?= $userInfo["bio"] ?></textarea>
-            <button class="button" type="submit">Change Information</button>
-        </form>
+            <label class="user-label" for="bio">Bio:</label><br>
+            <div class="user-bio">
+            <?= $userInfo["bio"] ?>
+            </div>
+            <a class="button button-manage button-edit" href="userInfoEdit.php">Change Information</a>
     </div>
     </div>
 </body>

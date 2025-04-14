@@ -32,12 +32,6 @@ login();
         </form>
         <p class="login-register-text">Don't have an account? <a class="login-register-link" href="register.php">Register now!</a></p>
     </div>
-    <a href="postCreation.php">Post Creation</a>
-    <a href="postEdition.php">Post Edition</a>
-    <a href="login.php">Login Page</a>
-    <a href="register.php">Register Page</a>
-    <a href="postDetail.php">Post Detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>

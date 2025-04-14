@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 push_flash_message("Email already exist in database");
             }
             $hash = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare("INSERT INTO users (username, email, pass) VALUES (:username, :email, :pass)");
-            $stmt->execute(["username" => $username, "email" => $email, "pass" => $hash]);
+            $stmt = $pdo->prepare("INSERT INTO users (username, email, pass, prof_pic) VALUES (:username, :email, :pass, :prof_pic)");
+            $stmt->execute(["username" => $username, "email" => $email, "pass" => $hash, "prof_pic" => "def.png"]);
             header("Location: login.php");
             exit();
         } catch (Exception $e) {

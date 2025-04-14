@@ -21,7 +21,7 @@ require_once "functions/postInDetail.php";
 
 <body>
     <?php require "elements/navbar.php" ?>
-    <img src="./post-images/<?= $chosenPost["photo"] ?>" class="photo-in-detail" alt="Post Image" />
+    <img src="./images/<?= $chosenPost["photo"] ?>" class="photo-in-detail" alt="Post Image" />
 
     <div class="post-in-detail">
         <?php require "elements/display_flash_messages.php" ?>
@@ -41,12 +41,6 @@ require_once "functions/postInDetail.php";
                 <button type="submit" class="button button-submit">Edit</button>
             <?php endif; ?>
     </div>
-    <a href="postCreation.php">Post Creation</a>
-    <a href="postEdition.php">Post Edition</a>
-    <a href="login.php">Login Page</a>
-    <a href="register.php">Register Page</a>
-    <a href="postDetail.php">Post Detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>

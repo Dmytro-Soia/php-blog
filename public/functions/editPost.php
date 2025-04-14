@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $newstmt->execute(["title" => $newTitle, "content" => $newContent, "photo" => $photo, "id" => $newChosenId]);
                 } catch (Exception $e) {
                     push_flash_message("Cannot edit this post");
+                    header("Location: postEdition.php");
+                    exit();
                 }
             } else {
                 try {
@@ -42,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 } catch (Exception $e) {
                     push_flash_message("Cannot edit this post");
+                    header("Location: postEdition.php");
+                    exit();
                 }
             }
             push_flash_message("The post has been edited!");

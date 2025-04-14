@@ -1,6 +1,7 @@
 <?php
 require_once "functions/auth.php";
 require_once "functions/userPage.php";
+require_once "functions/userEdit.php";
 logout();
 
 ?>
@@ -30,22 +31,16 @@ logout();
     <?php require "elements/display_flash_messages.php" ?>
     <div>
         <form class="create-edit-form" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="newUserInfoId" value="<?= $userInfo["id"] ?>">
+            <input type="hidden" name="userInfoId" value="<?= $userInfo["id"] ?>">
             <label class="label-create-edit" for="title">New Username</label>
-            <input type="text" name="title" class="input-create-edit" value="<?= $userInfo["username"] ?>" placeholder="Enter your new username">
+            <input type="text" name="username" class="input-create-edit" value="<?= $userInfo["username"] ?>" placeholder="Enter your new username">
             <label class="label-create-edit" for="content">New Bio</label>
-            <textarea name="content" rows="10" id="text" class="textarea-create-edit" placeholder="Enter your new bio"><?= $userInfo["bio"] ?></textarea>
+            <textarea name="bio" rows="10" id="text" class="textarea-create-edit" placeholder="Enter your new bio"><?= $userInfo["bio"] ?></textarea>
             <label class="label-create-edit" for="fileToUpload">Upload new profile photo</label>
             <input type="file" class="fileToUpload" name="fileToUpload">
             <button type="submit" class="button button-submit">Edit Info</button>
         </form>
     </div>
-    <a href="postCreation.php">Post creation</a>
-    <a href="postEdition.php">Post edition</a>
-    <a href="login.php">Login page</a>
-    <a href="register.php">Register page</a>
-    <a href="postDetail.php">Post detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>

@@ -61,7 +61,8 @@ input:focus {
 .login,
 .register,
 .home-page,
-.post-creation {
+.post-creation,
+.button-edit {
     text-decoration: none;
     align-content: center;
 }
@@ -390,9 +391,11 @@ label {
 
 
 .user-profile {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     right: 0px;
-    max-height: 100vh;
+    height: 88%;
     overflow-y: auto;
     width: 30%;
     padding: 25px;
@@ -400,21 +403,24 @@ label {
     border-left: 1px solid black;
 }
 
+.button.button-edit {
+    padding: 10px;
+    margin-top: auto;
+    align-self: center;
+}
+
 #user-profile-pic {
+    display: flex;
     width: 179px;
     height: 179px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #ddd;
-    margin: auto;
+    margin: 10px auto auto auto;
     margin-bottom: 20px;
 }
 
 .user-info {
     margin: 0px 0px 30px 0px;
-}
-
-.user-textarea {
-    resize: none;
 }
 

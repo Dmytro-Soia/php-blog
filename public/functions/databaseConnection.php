@@ -10,3 +10,4 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $passw, $options);
+$pdo->exec("PRAGMA journal_mode=WAL;");
