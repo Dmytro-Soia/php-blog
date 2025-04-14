@@ -5,16 +5,9 @@ connected();
 $chosenID = filter_input(INPUT_GET, "postId", FILTER_SANITIZE_NUMBER_INT);
 require "functions/databaseConnection.php";
 require_once "functions/flashMessages.php";
-try {
-    $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");
-    $stmt->execute(["id" => $chosenID]);
-    $chosenPost = $stmt->fetch();
-} catch (Exception $e) {
-    push_flash_message("Cannot charge your post");
-}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once "functions/savePostPhotoToFolder.php";
+
     $newTitle = filter_input(INPUT_POST, "title");
     $newContent = filter_input(INPUT_POST, "content");
     $newChosenId = filter_input(INPUT_POST, "newPostId", FILTER_SANITIZE_NUMBER_INT);
@@ -23,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     };
     if (!is_flash_message()) {
         try {
+            require_once "functions/savePhotoToFolder.php";
             if ($photo !== "" && $photo !== null) {
                 try {
                     $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");

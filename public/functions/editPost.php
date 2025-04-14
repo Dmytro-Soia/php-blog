@@ -14,7 +14,7 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once "functions/savePostPhotoToFolder.php";
+    require_once "functions/savePhotoToFolder.php";
     $newTitle = filter_input(INPUT_POST, "title");
     $newContent = filter_input(INPUT_POST, "content");
     $newChosenId = filter_input(INPUT_POST, "newPostId", FILTER_SANITIZE_NUMBER_INT);

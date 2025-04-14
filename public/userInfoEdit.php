@@ -32,9 +32,9 @@ logout();
         <form class="create-edit-form" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="newUserInfoId" value="<?= $userInfo["id"] ?>">
             <label class="label-create-edit" for="title">New Username</label>
-            <input type="text" name="title" class="input-create-edit" value="<?= $chosenPost["title"] ?>" placeholder="Enter your new username">
+            <input type="text" name="title" class="input-create-edit" value="<?= $userInfo["username"] ?>" placeholder="Enter your new username">
             <label class="label-create-edit" for="content">New Bio</label>
-            <textarea name="content" rows="10" id="text" class="textarea-create-edit" placeholder="Enter your new bio"><?= $chosenPost["content"] ?></textarea>
+            <textarea name="content" rows="10" id="text" class="textarea-create-edit" placeholder="Enter your new bio"><?= $userInfo["bio"] ?></textarea>
             <label class="label-create-edit" for="fileToUpload">Upload new profile photo</label>
             <input type="file" class="fileToUpload" name="fileToUpload">
             <button type="submit" class="button button-submit">Edit Info</button>

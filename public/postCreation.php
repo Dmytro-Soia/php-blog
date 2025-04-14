@@ -4,10 +4,7 @@ connected();
 $user = check_connection();
 forced_connection($user);
 logout();
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once "functions/savePostPhotoToFolder.php";
-    require_once "functions/createNewPost.php";
-}
+require_once "functions/createNewPost.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

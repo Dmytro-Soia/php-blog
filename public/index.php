@@ -29,7 +29,7 @@ require_once "functions/flashMessages.php";
             <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
                 <div class="post">
                     <h2 class="post-title"><?= $post["title"] ?></h2>
-                    <img src="/post-images/<?= $post["photo"] ?>" class="post-photo" />
+                    <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
                     <div class="content">
                         <p class="content-text">
                             <?php

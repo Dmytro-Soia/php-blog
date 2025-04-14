@@ -3,7 +3,6 @@ require_once "../vendor/autoload.php";
 
 require_once "functions/auth.php";
 $admin = $_SESSION["isAdmin?"];
-var_dump($_SESSION);
 admin_page_protection($admin);
 require_once "functions/adminChanging.php";
 ?>

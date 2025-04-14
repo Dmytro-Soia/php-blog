@@ -19,7 +19,7 @@ require_once "functions/userPage.php";
                 <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
                     <div class="post">
                         <h2 class="post-title"><?= $post["title"] ?></h2>
-                        <img src="/post-images/<?= $post["photo"] ?>" class="post-photo" />
+                        <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
                         <div class="content">
                             <p class="content-text">
                                 <?php
@@ -37,7 +37,7 @@ require_once "functions/userPage.php";
 
     <div class="user-profile">
         <form class="user-form" action="userInfoEdit.php" method="post">
-            <img src="post-images/1a51e9cee0f5c0765336.jpg" id="user-profile-pic">
+            <img src="images/def.png" id="user-profile-pic">
             <p>UID: <?= $userInfo["id"] ?></p>
             <label class="user-label" for="username">Username:</label>
             <h2 class="user-info" name="username"><?= $userInfo["username"] ?></h2>
