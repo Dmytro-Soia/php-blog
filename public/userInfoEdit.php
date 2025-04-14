@@ -1,13 +1,7 @@
 <?php
 require_once "functions/auth.php";
-connected();
-$user = check_connection();
-$author = creator_id();
-$admin = $_SESSION["isAdmin?"];
-forced_connection($user);
-forced_connection_and_same_user($author, $user, $admin);
+require_once "functions/userPage.php";
 logout();
-require_once "functions/editPost.php";
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +22,7 @@ require_once "functions/editPost.php";
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>Post Edition</title>
+    <title>User Info Edition</title>
 </head>
 
 <body>
@@ -36,14 +30,14 @@ require_once "functions/editPost.php";
     <?php require "elements/display_flash_messages.php" ?>
     <div>
         <form class="create-edit-form" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="newPostId" value="<?= $chosenPost["id"] ?>">
-            <label class="label-create-edit" for="title">New Post Title</label>
-            <input type="text" name="title" class="input-create-edit" value="<?= $chosenPost["title"] ?>" placeholder="Enter the new title of your post">
-            <label class="label-create-edit" for="content">New Post Content</label>
-            <textarea name="content" rows="10" id="text" class="textarea-create-edit" placeholder="Enter the new content of your post"><?= $chosenPost["content"] ?></textarea>
-            <label class="label-create-edit" for="fileToUpload">Upload new photo</label>
+            <input type="hidden" name="newUserInfoId" value="<?= $userInfo["id"] ?>">
+            <label class="label-create-edit" for="title">New Username</label>
+            <input type="text" name="title" class="input-create-edit" value="<?= $chosenPost["title"] ?>" placeholder="Enter your new username">
+            <label class="label-create-edit" for="content">New Bio</label>
+            <textarea name="content" rows="10" id="text" class="textarea-create-edit" placeholder="Enter your new bio"><?= $chosenPost["content"] ?></textarea>
+            <label class="label-create-edit" for="fileToUpload">Upload new profile photo</label>
             <input type="file" class="fileToUpload" name="fileToUpload">
-            <button type="submit" class="button button-submit">Edit Post</button>
+            <button type="submit" class="button button-submit">Edit Info</button>
         </form>
     </div>
     <a href="postCreation.php">Post creation</a>
