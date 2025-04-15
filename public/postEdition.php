@@ -8,7 +8,6 @@ forced_connection($user);
 forced_connection_and_same_user($author, $user, $admin);
 logout();
 require_once "functions/editPost.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -5,6 +5,7 @@ require_once "functions/auth.php";
 $admin = $_SESSION["isAdmin?"];
 admin_page_protection($admin);
 require_once "functions/adminChanging.php";
+require_once "functions/purifier.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,13 +30,9 @@ require_once "functions/adminChanging.php";
                 <div class="display-users">
                     <input type="hidden" value=<?= $user["id"] ?> name="adminChanges">
                     <p>ID: <?= $user["id"] ?></p>
-                    <p> Username: <?php
-                                    $config = HTMLPurifier_Config::createDefault();
-            $purifier = new HTMLPurifier($config);
-            echo $purifier->purify($user["username"]);
-            ?>
+                    <p> Username: <?= purify($user["username"]) ?>
                     </p>
-                    <p>Email: <?= $user["email"] ?></p>
+                    <p>Email: <?= purify($user["email"]) ?></p>
                     <div>
                         <label for="Admin">Administrator: </label>
                         <input type="checkbox" name="admin" value="admin" <?= $user["administrator"] === 1 ? 'checked' : '' ?>><br><br>

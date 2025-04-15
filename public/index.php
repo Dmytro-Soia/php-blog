@@ -6,6 +6,7 @@ connected();
 logout();
 require_once "functions/displayPosts.php";
 require_once "functions/flashMessages.php";
+require_once "functions/purifier.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,15 +29,10 @@ require_once "functions/flashMessages.php";
         <?php foreach ($allPosts as $post): ?>
             <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
                 <div class="post">
-                    <h2 class="post-title"><?= $post["title"] ?></h2>
+                    <h2 class="post-title"><?= purify($post["title"]) ?></h2>
                     <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
                     <div class="content">
-                        <p class="content-text">
-                            <?php
-                            $config = HTMLPurifier_Config::createDefault();
-            $purifier = new HTMLPurifier($config);
-            echo $purifier->purify($post["content"]);
-            ?>
+                        <p class="content-text"><?= purify($post["content"]) ?>
                         </p>
                     </div>
                 </div>

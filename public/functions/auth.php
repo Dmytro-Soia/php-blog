@@ -52,6 +52,7 @@ function admin_page_protection($admin)
     if ($admin === 0) {
         push_flash_message("You are not allowed to get access to this page");
         header("Location: index.php");
+        exit();
     }
 }
 
@@ -91,7 +92,18 @@ function logout()
         $logpost = filter_input(INPUT_POST, "logout", FILTER_SANITIZE_SPECIAL_CHARS);
         if (isset($_POST[$logpost])) {
             session_unset();
-
+            if (ini_get("session.use_cookies")) {
+                $params = session_get_cookie_params();
+                setcookie(
+                    session_name(),
+                    '',
+                    time() - 42000,
+                    $params["path"],
+                    $params["domain"],
+                    $params["secure"],
+                    $params["httponly"]
+                );
+            }
             session_destroy();
             header("Location: /login.php");
         }
