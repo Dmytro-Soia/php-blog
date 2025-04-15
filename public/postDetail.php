@@ -4,6 +4,7 @@ require_once "functions/auth.php";
 connected();
 $user = check_connection();
 require_once "functions/postInDetail.php";
+require_once "functions/purifier.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,14 +26,8 @@ require_once "functions/postInDetail.php";
 
     <div class="post-in-detail">
         <?php require "elements/display_flash_messages.php" ?>
-        <h1 class="title-in-detail"><?= $chosenPost["title"] ?></h1>
-        <p class="content-text-in-detail">
-            <?php
-            $config = HTMLPurifier_Config::createDefault();
-$purifier = new HTMLPurifier($config);
-echo $purifier->purify($post["content"]);
-?>
-        </p>
+        <h1 class="title-in-detail"><?= purify($chosenPost["title"]) ?></h1>
+        <p class="content-text-in-detail"><?= purify($chosenPost["content"]) ?></p>
     </div>
     <div class="redirect-to-edit">
         <form action="postEdition.php" method="GET">

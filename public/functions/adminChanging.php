@@ -25,9 +25,13 @@ if (!is_flash_message()) {
                 }
             } catch (Exception $e) {
                 push_flash_message("Cannot update admin");
+                header("Location: adminPanel.php");
+                exit();
             }
         }
     } catch (Exception $e) {
         push_flash_message("Cannot get acces to database");
+        header("Location: adminPanel.php");
+        exit();
     }
 }

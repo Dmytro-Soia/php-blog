@@ -39,7 +39,6 @@
 
 ```bash
 sudo dnf install php composer
-composer install
 ```
 
 ### 2. Clone the repository:
@@ -57,7 +56,7 @@ cd php-blog
 
 ```bash
 sudo dnf install php
-npm install sqlite3@5.1.7 && exit 0
+npm install sqlite3@5.1.7
 composer install
 ```
 

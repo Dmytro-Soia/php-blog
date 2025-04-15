@@ -1,7 +1,7 @@
 <?php
 require_once "../vendor/autoload.php";
 require_once "functions/userPage.php";
-
+require_once "functions/purifier.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,16 +21,10 @@ require_once "functions/userPage.php";
             <?php foreach ($userPosts as $post): ?>
                 <a href="postDetail.php?postID=<?= $post['id'] ?>" class="post-link">
                     <div class="post">
-                        <h2 class="post-title"><?= $post["title"] ?></h2>
+                        <h2 class="post-title"><?= purify($post["title"]) ?></h2>
                         <img src="/images/<?= $post["photo"] ?>" class="post-photo" />
                         <div class="content">
-                            <p class="content-text">
-                                <?php
-                                $config = HTMLPurifier_Config::createDefault();
-                $purifier = new HTMLPurifier($config);
-                echo $purifier->purify($post["content"]);
-                ?>
-                            </p>
+                            <p class="content-text"><?= purify($post["content"]) ?></p>
                         </div>
                     </div>
                 </a>
@@ -42,13 +36,11 @@ require_once "functions/userPage.php";
         <img src="./images/<?= $userInfo["prof_pic"] ?>" id="user-profile-pic">
         <p>UID: <?= $userInfo["id"] ?></p>
         <label class="user-label" for="username">Username:</label>
-        <h2 class="user-info" name="username"><?= $userInfo["username"] ?></h2>
+        <h2 class="user-info" name="username"><?= purify($userInfo["username"]) ?></h2>
         <label class="user-label" for="email">Email:</label>
-        <h2 class="user-info" name="email"><?= $userInfo["email"] ?></h2>
+        <h2 class="user-info" name="email"><?= purify($userInfo["email"]) ?></h2>
         <label class="user-label" for="bio">Bio:</label><br>
-        <div class="user-bio">
-            <?= $userInfo["bio"] ?>
-        </div>
+        <div class="user-bio"><?= purify($userInfo["bio"]) ?></div>
         <a class="button button-manage button-edit" href="userInfoEdit.php">Change Information</a>
     </div>
     </div>
