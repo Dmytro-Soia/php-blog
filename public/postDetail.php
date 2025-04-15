@@ -41,12 +41,6 @@ echo $purifier->purify($post["content"]);
                 <button type="submit" class="button button-submit">Edit</button>
             <?php endif; ?>
     </div>
-    <a href="postCreation.php">Post Creation</a>
-    <a href="postEdition.php">Post Edition</a>
-    <a href="login.php">Login Page</a>
-    <a href="register.php">Register Page</a>
-    <a href="postDetail.php">Post Detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>

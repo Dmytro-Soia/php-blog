@@ -6,6 +6,8 @@ CREATE TABLE users(
 	username 		TEXT NOT NULL,
 	email 			TEXT NOT NULL UNIQUE,
 	pass 			TEXT NOT NULL,
+	bio				TEXT,
+	prof_pic		TEXT,
 	administrator 	BOOLEAN NOT NULL DEFAULT 0 
 );
 

@@ -15,15 +15,15 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require_once "functions/savePhotoToFolder.php";
-    $newTitle = filter_input(INPUT_POST, "title", FILTER_SANITIZE_SPECIAL_CHARS);
-    $newContent = filter_input(INPUT_POST, "content", FILTER_SANITIZE_SPECIAL_CHARS);
+    $newTitle = filter_input(INPUT_POST, "title");
+    $newContent = filter_input(INPUT_POST, "content");
     $newChosenId = filter_input(INPUT_POST, "newPostId", FILTER_SANITIZE_NUMBER_INT);
     if ($newTitle === "" || $newContent === "") {
         push_flash_message("One of needed value is empty");
     };
     if (!is_flash_message()) {
         try {
-            if ($photo !== "" && $photo !== null) {
+            if (!empty($photo)) {
                 try {
                     $stmt = $pdo->prepare("SELECT * FROM blog_post WHERE id = :id");
                     $stmt->execute(["id" => $newChosenId]);
@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $newstmt->execute(["title" => $newTitle, "content" => $newContent, "photo" => $photo, "id" => $newChosenId]);
                 } catch (Exception $e) {
                     push_flash_message("Cannot edit this post");
+                    header("Location: postEdition.php");
+                    exit();
                 }
             } else {
                 try {
@@ -42,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 } catch (Exception $e) {
                     push_flash_message("Cannot edit this post");
+                    header("Location: postEdition.php");
+                    exit();
                 }
             }
             push_flash_message("The post has been edited!");

@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100%;
     margin: 40px 0px 0px 0px;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
@@ -57,7 +58,11 @@ input:focus {
     background-color: #ffffff;
 }
 
-.login, .register, .home-page, .post-creation {
+.login,
+.register,
+.home-page,
+.post-creation,
+.button-edit {
     text-decoration: none;
     align-content: center;
 }
@@ -78,6 +83,7 @@ input:focus {
 .header-right {
     display: flex;
 }
+
 /*Home Page styles*/
 .grid-section {
     display: grid;
@@ -142,13 +148,14 @@ input:focus {
     line-height: 1.5;
     text-align: start;
     max-height: 100px;
-    overflow: hidden;  
+    overflow: hidden;
 }
 
 .post-link {
     text-decoration: none;
     color: black;
 }
+
 /*Post Detail styles*/
 .post-in-detail {
     max-width: 800px;
@@ -184,6 +191,7 @@ input:focus {
 .redirect-to-edit {
     width: 100%;
 }
+
 /*Login page style*/
 .login-register-container {
     margin-top: 120px;
@@ -344,12 +352,11 @@ label {
     min-width: 300px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    
+
     background-color: #f1f4f8;
     margin: 40px 0px 20px 0px;
     padding: 10px 20px;
 }
-
 
 .users-grid-section {
     display: grid;
@@ -366,4 +373,53 @@ label {
 .admin-button:active {
     transform: scale(0.98);
     transition: 0.1s ease;
-  }
+}
+
+/* User Profile*/
+
+.user-profile-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 70% 30%;
+}
+
+.users-post {
+    max-width: 600px;
+    max-height: 600px;
+    margin: 20px auto auto auto;
+}
+
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0px;
+    height: 88%;
+    overflow-y: auto;
+    width: 30%;
+    padding: 25px;
+    background-color: white;
+    border-left: 1px solid black;
+}
+
+.button.button-edit {
+    padding: 10px;
+    margin-top: auto;
+    align-self: center;
+}
+
+#user-profile-pic {
+    display: flex;
+    width: 179px;
+    height: 179px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    margin: 10px auto auto auto;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    margin: 0px 0px 30px 0px;
+}

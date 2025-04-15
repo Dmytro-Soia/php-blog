@@ -19,9 +19,9 @@ login();
 </head>
 
 <body>
-    <?php require "elements/navbar.php"?>
+    <?php require "elements/navbar.php" ?>
     <div class="login-register-container">
-    <?php require "elements/display_flash_messages.php" ?>
+        <?php require "elements/display_flash_messages.php" ?>
         <h1>Login to account</h1>
         <form action="login.php" method="post">
             <label for="email">Email Address</label>
@@ -32,12 +32,6 @@ login();
         </form>
         <p class="login-register-text">Don't have an account? <a class="login-register-link" href="register.php">Register now!</a></p>
     </div>
-    <a href="postCreation.php">Post Creation</a>
-    <a href="postEdition.php">Post Edition</a>
-    <a href="login.php">Login Page</a>
-    <a href="register.php">Register Page</a>
-    <a href="postDetail.php">Post Detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>

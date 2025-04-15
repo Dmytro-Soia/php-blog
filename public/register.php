@@ -21,7 +21,7 @@ require_once "functions/registration.php";
 
 <body>
     <div class="login-register-container">
-    <?php require "elements/display_flash_messages.php" ?>
+        <?php require "elements/display_flash_messages.php" ?>
         <h1>Register New Account</h1>
         <form action="register.php" method="post">
             <label for="username">Username</label>
@@ -34,12 +34,6 @@ require_once "functions/registration.php";
         </form>
         <p class="login-register-text">Already have an account? <a class="login-register-link" href="login.php">Login now!</a></p>
     </div>
-    <a href="postCreation.php">Post Creation</a>
-    <a href="postEdition.php">Post Edition</a>
-    <a href="login.php">Login Page</a>
-    <a href="register.php">Register Page</a>
-    <a href="postDetail.php">Post Detail</a>
-    <a href="index.php">Index</a>
 </body>
 
 </html>
